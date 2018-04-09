@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pro MERN Stack</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Muli:200,400,600,700');
+
+            /* Padding below the footer and lighter body text */
+
+            body {
+                color: #5a5a5a;
+                font-family: 'Muli',sans-serif;
+            }
+            
+            body{
+                font-family: open sans,tahoma,sans-serif;;
+                font-size: 11px;
+                background: #ececec;
+            }
+            table.bordered-table th, td {border: 1px solid silver; padding: 4px;}
+            table.bordered-table {border-collapse: collapse;}
+            ul{
+                list-style: none;
+            }
+            li{
+
+            }
+
+            .product{
+                display: box;
+                width:190px;
+                float:left;
+                height:267px;                
+                margin:3px;
+                padding:0px;
+                border-radius: 7px;
+                background: #fff;
+                border: 1px solid #ececec;
+                border-bottom-width: 7px;
+            }
+
+            .product.BL 
+            {
+                border-color: #da5f82;
+                border-bottom-color: #d71149;
+            }
+
+            .product.TP 
+            {
+                border-color: #71bb75;
+                border-bottom-color: #42b549;
+            }
+
+            .product img
+            {
+                border-radius: 6px 6px 0px 0px;
+                margin-bottom: 7px;
+            }
+
+            .product-title
+            {
+                font-size: 1.2em;
+                height: 2.4em;
+                overflow: hidden;
+                margin: 1px 5px;
+                text-align: center;
+            }
+            
+            .product-title a
+            {
+                font-weight: 700;
+                text-decoration: none;
+                color: #222;
+            }
+
+            .seller-info{
+                display: inline;                
+                clear: both;
+                margin-bottom: 3px;
+            }
+
+            .seller-info .product-origin{
+                float: left;   
+                clear: left;
+                width: 11%;
+                overflow: hidden;
+                margin-left: 5px;
+            }
+
+            .seller-info .product-seller{
+                float: left;
+                width: 45%;
+                overflow: hidden;
+                display: inline;
+                height: 1.4em;
+            }
+
+            .seller-info .product-location{
+                float: right;   
+                width:38%;
+                overflow: hidden;
+                display: inline;
+                text-align: right;
+                height: 1.4em;
+                margin-right: 5px;
+            }
+
+            .products-info
+            {
+                clear:both;
+                padding: 5px;
+            }
+
+            .products-info .product-price{
+                float: left;                
+            }
+
+            .products-info .product-condition{
+                float: right;     
+                text-align: right;
+            }
+
+
+        </style>
+       
+    </head>
+    <body>
+        <div id="contents"></div><!-- this is where our component will appear -->
+        <div id="contents2"></div><!-- this is where our component will appear -->
+        <script src="/vendor.bundle.js"></script>
+        <script src="/app.bundle.js"></script>       
+       
+    </body>
+</html>
