@@ -1,6 +1,5 @@
 import React from 'react';
 import 'whatwg-fetch';
-//import IssueAdd from './IssueAdd.jsx';
 import CollectionSearch from './CollectionSearch.jsx';
 
 
@@ -48,7 +47,6 @@ function ItemsDisplay(props) {
 export default class Collection extends React.Component {
     constructor() {
         super();
-        //this.createIssue = this.createIssue.bind(this);
         var words = {
             bl: {
                 keyword: "keywords",
@@ -229,40 +227,7 @@ export default class Collection extends React.Component {
     }
     
     sort(obj,method)
-    {
-        fetch('http://www.google-analytics.com/analytics.js').then(response => {
-            
-            if (response.ok) { 
-                console.log(response.body);
-//                response.json().then(data => {
-//                    console.log("Total count of records tp :", data.data.length);
-//                    var word = this.state.words.tp; 
-//                    //console.log(this.state.words);
-//                    var temp = [];
-//                    data.data.forEach(item => {
-//                        temp.push({
-//                            title: item.name,
-//                            img: item.image_uri,
-//                            seller_name: item.shop.name,
-//                            location: item.shop.location,
-//                            price: parseInt(item.price.replace(/[Rp .]+/g,"")),
-//                            condition: word.options.condition[word.options.condition.findIndex(d => d.key == item.condition)].text ,
-//                            url: item.uri,
-//                            origin : "TP"
-//                        });
-//                        //console.log(word.options.condition.findIndex(d => d.key == item.condition)+"==");
-//                    });
-//                    this.setState({items: this.sort(this.state.items.concat(temp),params.sort)});
-//                });
-            } else {
-                response.json().then(error => {
-                    alert("Failed to fetch issues:" + error.message)
-                });
-            }
-        }).catch(err => {
-            alert("Error in fetching data from Tokopedia : ", err);
-        });
-        
+    {   
         if (method == 'lowest')
             return this.priceAsc(obj);
         else if (method == 'highest')
@@ -294,12 +259,11 @@ export default class Collection extends React.Component {
                 response.json().then(data => {
                     console.log("Total count of records tp :", data.data.length);
                     var word = this.state.words.tp; 
-                    //console.log(this.state.words);
                     var temp = [];
                     data.data.forEach(item => {
                         temp.push({
                             title: item.name,
-                            img: item.image_uri,
+                            img: item.image_uri_700,
                             seller_name: item.shop.name,
                             location: item.shop.location,
                             price: parseInt(item.price.replace(/[Rp .]+/g,"")),
@@ -307,7 +271,6 @@ export default class Collection extends React.Component {
                             url: item.uri,
                             origin : "TP"
                         });
-                        //console.log(word.options.condition.findIndex(d => d.key == item.condition)+"==");
                     });
                     this.setState({items: this.sort(this.state.items.concat(temp),params.sort)});
                 });
