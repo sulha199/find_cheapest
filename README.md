@@ -3,7 +3,7 @@
 Built on ReactJS and ExpressJS. It is useful for looking the best price on Indonesia's e-commerces(currently, working on Tokopedia and Bukalapak only).
 Next Plan :
 * Integrate with CSS preprocessor and maybe Bootstrap or Webpack
-* Improve the OO structure. Create Object Interface for E-commerce API
+* Improve the OO structure. Create abstract class for E-commerce-API consumer
 * Deploy to a free host, or in Github Pages
 
 
