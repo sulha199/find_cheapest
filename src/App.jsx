@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ShopItemsStore from './ShopItemsStore.jsx'
 import Collection from './Collection.jsx';
 
 const contentNode = document.getElementById('contents');
@@ -8,7 +9,7 @@ const contentNode = document.getElementById('contents');
 //ReactDOM.render(<IssueList />, contentNode); // Render the component inside the content Node 
 
 const contentNode2 = document.getElementById('contents2');
-ReactDOM.render(<Collection />, contentNode2); // Render the component inside the content Node 
+ReactDOM.render(<Collection shopItems={ShopItemsStore.getState().shopItems}/>, contentNode2); // Render the component inside the content Node 
 
 if (module.hot) {
     module.hot.accept();

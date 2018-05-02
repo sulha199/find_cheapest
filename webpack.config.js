@@ -8,7 +8,7 @@ module.exports = {
 		vendor: ['react','react-dom','whatwg-fetch'],
 	},
 	output: {
-		path: path.join(__dirname, '/static'),
+		path: path.join(__dirname, '/public'),
 		filename: 'app.bundle.js'
 	},
 	plugins: [
@@ -27,7 +27,7 @@ module.exports = {
 	},
 	devServer: {
 		port: 8000,
-		contentBase: 'static',
+		contentBase: 'public',
 		proxy: {
 			'/api/*': {
 				target: 'http://localhost:3000'
