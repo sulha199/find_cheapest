@@ -18,6 +18,8 @@ import ShopItemsStore from './ShopItemsStore.jsx'
         if (this.shop_code === undefined) {
             throw new TypeError("Abstract field 'shop_code' must be initiated");
         }
+
+         console.log(this.shop_name +' initiated.');
     }
 
     createFilter(params) {
@@ -44,23 +46,28 @@ import ShopItemsStore from './ShopItemsStore.jsx'
     }
 
     performGetRequest(filterParams) {
-        fetch(this.api_url + this.createFilter(filterParams)).then(response => {
-            if (response.ok) {
-                response.json().then(data => {
-                    var items = this.readRecords(data);
-//                    var itemsState = ShopItems.getState().shopItems;
-                    ShopItemsStore.dispatch({shopItems: items}, filterParams.sort);
-
-                    return items;
-                });
-            } else {
-                response.json().then(error => {
-                    alert("Failed to fetch issues:" + error.message)
-                });
-            }
-        }).catch(err => {
+      return (dispatch) => {
+        fetch(this.api_url + this.createFilter(filterParams))
+          .then(response => {
+              if (response.ok) {
+                  response.json().then(data => {
+                      var items = this.readRecords(data);
+                      dispatch({shopItems: items,sortType:filterParams.sort,type:'SUCCESS'}, filterParams.sort);
+                  });
+              } else {
+                  throw Error(response.statusText);
+              }
+          })
+        .catch(err => {
             alert("Error in fetching data from " + this.shop_name + ": ", err);
         });
+      };
+    }
+
+    clearData(){
+      return (dispatch) => {
+        dispatch({type:'CLEAR'});
+      }
     }
 
 }

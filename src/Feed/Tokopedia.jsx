@@ -2,11 +2,11 @@ import ShopFeed from '../ShopFeed.jsx';
 
 export default class Tokopedia extends ShopFeed{
     get shop_name(){
-        return 'Tokopedia'; 
+        return 'Tokopedia';
     }
     get shop_code(){
-        return 'TP'; 
-    }    
+        return 'TP';
+    }
     get api_url(){
         return 'http://localhost:8000/api/tp?st=product&image_size=100&image_square=true&rows=20&';
     }
@@ -57,13 +57,13 @@ export default class Tokopedia extends ShopFeed{
                     }
                 ]
             }
-        }; 
+        };
     }
-    
-    readRecords(data){ 
-        var word = this.search_field;   
+
+    readRecords(data){
+        var word = this.search_field;
         var temp = [];
-        
+
         console.log("Total count of records of "+ this.shop_code + ": ", data.data.length);
         data.data.forEach(item => {
             temp.push({
@@ -78,12 +78,11 @@ export default class Tokopedia extends ShopFeed{
                 origin : 'TP',
             });
         },this);
-        
-        console.log(temp);
+
         return temp;
     }
-    
+
     constructor(){
-        super();        
+        super();
     }
 }

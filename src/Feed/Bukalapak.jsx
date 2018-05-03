@@ -2,13 +2,13 @@ import ShopFeed from '../ShopFeed.jsx';
 
 export default class Bukalapak extends ShopFeed{
     get shop_name(){
-        return 'Bukalapak'; 
+        return 'Bukalapak';
     }
     get shop_code(){
-        return 'BL'; 
-    }    
+        return 'BL';
+    }
     get field_map(){
-        return 'Bukalapak'; 
+        return 'Bukalapak';
     }
     get api_url(){
         return 'https://api.bukalapak.com/v2/products.json?page=1&per_page=20&';
@@ -56,11 +56,11 @@ export default class Bukalapak extends ShopFeed{
                     }
                 ]
             }
-        }; 
+        };
     }
-    
-    readRecords(data){ 
-        var word = this.search_field;   
+
+    readRecords(data){
+        var word = this.search_field;
         console.log("Total count of records of BL:", data.products.length);
         var temp = [];
         data.products.forEach(item => {
@@ -76,13 +76,11 @@ export default class Bukalapak extends ShopFeed{
                 origin:'BL',
             });
         },this);
-        
-        console.log(temp);
-        
+
         return temp;
     }
-    
+
     constructor(){
-        super();        
+        super();
     }
 }
