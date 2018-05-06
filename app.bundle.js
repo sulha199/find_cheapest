@@ -2895,9 +2895,9 @@ var Collection = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(
-                    'h1',
+                    'h3',
                     null,
-                    'List :'
+                    'Find top 20 cheapest products from Bukalapak and Tokopedia'
                 ),
                 _react2.default.createElement(_CollectionSearch2.default, { performSearch: this.performSearch }),
                 _react2.default.createElement('hr', null),
