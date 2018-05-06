@@ -8,7 +8,7 @@ export default class Tokopedia extends ShopFeed{
         return 'TP';
     }
     get api_url(){
-        return 'http://localhost:8000/api/tp?st=product&image_size=100&image_square=true&rows=20&';
+        return 'https://still-lowlands-56721.herokuapp.com/api/tp?st=product&image_size=100&image_square=true&rows=20&';
     }
     get search_field(){
         return {
