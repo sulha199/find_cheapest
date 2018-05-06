@@ -1,10 +1,10 @@
 # find_cheapest
 
-Built on ReactJS and ExpressJS. It is useful for looking the best price on Indonesia's e-commerces(currently, working on Tokopedia and Bukalapak only).
+Built on ReactJS and ExpressJS. It is useful for looking the best price on Indonesia's e-commerces(currently, working on Tokopedia and Bukalapak only). Compiled using webpack.
 Next Plan :
 * Integrate with CSS preprocessor and maybe Bootstrap or Webpack
 * Improve the OO structure. Create (made-up)abstract class for E-commerce-API consumer. Actually, there is no abstract class in Javascript. -> done
-* Deploy to a free host, or in Github Pages
+* Deploy to a free host, or in Github Pages --> done
 
 
 ## How to install
