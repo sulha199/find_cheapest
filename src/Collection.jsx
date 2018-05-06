@@ -37,7 +37,7 @@ class Collection extends React.Component {
     render() {
         return (
                 <div>
-                    <h1>List :</h1>
+                    <h3>Find top 20 cheapest products from Bukalapak and Tokopedia</h3>
                     <CollectionSearch performSearch={this.performSearch}/>
                     <hr />
                     <ItemsDisplay items={this.props.items} />
