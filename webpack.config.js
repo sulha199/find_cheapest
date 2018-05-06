@@ -8,7 +8,7 @@ module.exports = {
 		vendor: ['react','react-dom','whatwg-fetch'],
 	},
 	output: {
-		path: path.join(__dirname, '/public'),
+		path: path.join(__dirname, '/build'),
 		filename: 'app.bundle.js'
 	},
 	plugins: [
