@@ -19,7 +19,6 @@ import ShopItemsStore from './ShopItemsStore.jsx'
             throw new TypeError("Abstract field 'shop_code' must be initiated");
         }
 
-         console.log(this.shop_name +' initiated.');
     }
 
     createFilter(params) {

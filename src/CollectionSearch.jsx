@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, FormControl, Glyphicon, Form, FormGroup, ControlLabel } from 'react-bootstrap';
+
 export default class CollectionSearch extends React.Component {
     constructor() {
         super();
@@ -18,25 +20,25 @@ export default class CollectionSearch extends React.Component {
     render() {
         return (
                 <div>
-                    <form name="collectionSearch" onSubmit={this.handleSubmit}>
-                        <input type="text" name="keyword" placeholder="Masukkan Kata Kunci" />
-                        <select name="sort" placeholder="urut berdasar">
-                            <option value="lowest">Termurah</option>
-                            <option value="highest">Termahal</option>                        
-                            <option value="newest">Terbaru</option>
-                            <option value="">Acak</option>                            
-                        </select>
-                        <select name="condition" placeholder="">
-                            <option value="">Semua</option>
-                            <option value="new">Baru</option>
-                            <option value="used">Bekas</option>                                    
-                        </select>
-                        <input type="text" name="price_min" placeholder="Harga Minimum" />
-                        <input type="text" name="price_max" placeholder="Harga Maksimum" />
-                        <button>Cari</button>
-                    </form>
+                    <Form inline name="collectionSearch" onSubmit={this.handleSubmit}>
+                        <FormControl type="text" name="keyword" placeholder="Masukkan Kata Kunci" />
+                        <FormControl type="hidden" name="condition" />                        
+                        <FormGroup>
+                          <FormControl type="text" name="price_min" placeholder="Harga Minimum" />
+                          <FormControl type="text" name="price_max" placeholder="Harga Maksimum" />
+                        </FormGroup>
+                        <FormGroup className="has-feedback has-feedback-left">
+                          <FormControl componentClass="select" name="sort" placeholder="urut berdasar">
+                              <option value="lowest">Termurah</option>
+                              <option value="highest">Termahal</option>
+                              <option value="newest">Terbaru</option>
+                              <option value="">Acak</option>
+                          </FormControl>
+                          <i className="glyphicon glyphicon-sort form-control-feedback"></i>
+                        </FormGroup>
+                        <Button  type="submit"><Glyphicon glyph="search" /></Button>
+                    </Form>
                 </div>
                 )
     }
 }
-

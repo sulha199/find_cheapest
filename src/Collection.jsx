@@ -6,6 +6,7 @@ import ShopItemsStore from './ShopItemsStore.jsx';
 import ShopFeed from './ShopFeed.jsx';
 import Bukalapak from './Feed/Bukalapak.jsx';
 import Tokopedia from './Feed/Tokopedia.jsx';
+import { Grid, Col, Row, Button, Image, Thumbnail } from 'react-bootstrap';
 
 class Collection extends React.Component {
     constructor() {
@@ -31,7 +32,6 @@ class Collection extends React.Component {
         for (var f in ShopFactories)
             (this.props.fetchData(ShopFactories[f],filters));
 
-           console.log(this.props);
     }
 
     render() {
@@ -40,53 +40,57 @@ class Collection extends React.Component {
                     <h3>Find top 20 cheapest products from Bukalapak and Tokopedia</h3>
                     <CollectionSearch performSearch={this.performSearch}/>
                     <hr />
-                    <ItemsDisplay items={this.props.items} />
+                    <BootstrapItemsDisplay items={this.props.items} />
                     <hr />
                 </div>
                 );
     }
 }
 
-function ItemsDisplay(props) {
-    const items = props.items.map(item => <CollectionItem  item={item} />)
+function BootstrapItemsDisplay(props) {
+    const items = props.items.map(item => <BootstrapCollectionItem  item={item} />)
     return (
-            <ul>{items}</ul>
-            );
+            <Grid>
+              <Row className="show-grid">
+                {items}
+              </Row>
+            </Grid>
+    );
 }
 
-const CollectionItem = (props) => (
-            <li>
-                <div className={"product " +props.item.origin}>
-                    <div className="product-image">
-                        <img src={props.item.img}/>
-                    </div>
-                    <div className="product-title">
-                    <a href={props.item.url}><span>{props.item.title}</span></a>
-                    </div>
+const BootstrapCollectionItem = (props) => (
+      <Col xs={6} sm={4} md={3} lg={2}>
+        <Thumbnail className={"product " +props.item.origin} href={props.item.url}>
+          <Thumbnail src={props.item.img} className={"product-image"}>
+          </Thumbnail>
 
-                    <div className="products-info">
-                        <div className="product-price">
-                            <span>Rp {props.item.price.toLocaleString()}</span>
-                        </div>
-                        <div className="product-condition">
-                            <span>{props.item.condition}</span>
-                        </div>
-                    </div>
+          <div className="product-title">
+            <a href={props.item.url}>{props.item.title}</a>
+          </div>
 
-                    <div className={"seller-info " +props.item.origin}>
-                        <div className="product-origin">
-                            <span><b>{props.item.origin} </b></span>
-                        </div>
-                        <div className="product-seller">
-                            <span>{props.item.seller_name}</span>
-                        </div>
-                        <div className="product-location">
-                            <span>{props.item.location}</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            )
+          <div className="products-info">
+              <div className="product-price">
+                  <span>Rp {props.item.price.toLocaleString()}</span>
+              </div>
+              <div className="product-condition">
+                  <span>{props.item.condition}</span>
+              </div>
+          </div>
+
+          <div className={"seller-info " +props.item.origin}>
+              <div className="product-origin">
+                  <span><b>{props.item.origin} </b></span>
+              </div>
+              <div className="product-seller">
+                  <span>{props.item.seller_name}</span>
+              </div>
+              <div className="product-location">
+                  <span>{props.item.location}</span>
+              </div>
+          </div>
+        </Thumbnail>
+      </Col>
+)
 
 const mapStateToProps = (state) => {
     return {
